@@ -21,8 +21,9 @@ int main(int argc, char **argv)
   pwmSetClock(192);
 
   pwmWrite(18,150);
-  delay(10000);
+  delay(1000);
   pwmWrite(18,200);
-
+ 
+  cout << "Finished" << endl;
   return 0; // should never get here, unless roscore dies 
 } 
