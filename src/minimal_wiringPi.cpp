@@ -7,6 +7,8 @@ using namespace std;
 
 int main(int argc, char **argv) 
 { 
+  int i = 0;
+  
   ros::init(argc,argv,"minimal_wiringPi"); //name this node
   // when this compiled code is run, ROS will recognize it as a node called "minimal_wiringPi"
 
@@ -16,13 +18,17 @@ int main(int argc, char **argv)
   wiringPiSetupGpio(); // Initalize Pi
 
   pinMode(18,PWM_OUTPUT);
-  pwmSetMode(PWM_MODE_MS);
-  pwmSetRange(2000);
-  pwmSetClock(192);
+  pwmSetMode(PWM_MODE_BAL);
+  pwmSetRange(1024);
+  pwmSetClock(32);
 
-  pwmWrite(18,150);
-  delay(1000);
-  pwmWrite(18,200);
+  while(1)
+  {
+	pwmWrite(18,i);
+	delay(100);
+	i = (i + 1) % 1024
+  }
+
  
   cout << "Finished" << endl;
   return 0; // should never get here, unless roscore dies 
