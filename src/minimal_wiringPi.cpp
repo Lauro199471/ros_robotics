@@ -25,7 +25,7 @@ int main(int argc, char **argv)
   while(1)
   {
 	pwmWrite(18,i);
-	delay(100);
+	delay(2);
 	i = (i + 1) % 1024;
   }
 
