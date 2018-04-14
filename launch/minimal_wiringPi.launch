@@ -1,0 +1,4 @@
+
+<launch>
+	<node pkg="ros_robotics" type="minimal_wiringPi" name="minimal_wiringPi" launch-prefix="sudo"/>
+</launch>
