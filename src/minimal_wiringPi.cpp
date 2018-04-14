@@ -22,14 +22,14 @@ int main(int argc, char **argv)
   pwmSetRange(1024);
   pwmSetClock(32);
 
-  while(ros::ok())
+  while(ros::ok()) // Ctrl-C Handler
   {
 	pwmWrite(18,i);
 	delay(2);
 	i = (i + 1) % 1024;
   }
 
- 
+  pwmWrite(18,0);
   cout << "Finished" << endl;
   return 0; // should never get here, unless roscore dies 
 } 
