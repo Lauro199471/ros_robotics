@@ -22,7 +22,7 @@ int main(int argc, char **argv)
   pwmSetRange(1024);
   pwmSetClock(32);
 
-  while(1)
+  while(ros::ok())
   {
 	pwmWrite(18,i);
 	delay(2);
